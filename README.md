@@ -1,6 +1,6 @@
 # devcontainer fun
 
-An experiment for sharing a single Dockerfile defined in a repository for both local development using VS Code devcontainers and CI/CD with GitHub Actions.
+An example for how to share a single Dockerfile defined in a repository for both local development using VS Code devcontainers and CI/CD with GitHub Actions.
 
 ## VS Code Devcontainers
 
