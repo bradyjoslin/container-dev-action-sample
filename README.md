@@ -1,4 +1,4 @@
-# devcontainer fun
+# container-dev-action-sample
 
 An example for how to share a single Dockerfile defined in a repository for both local development using VS Code devcontainers and CI/CD with GitHub Actions.
 
@@ -19,6 +19,7 @@ Using containers for developing and builds solve a lot of problems separately, b
 ### Example project structure
 
 ```
+/container-dev-action-sample
 ├── .github             // Contains GitHub Action and Workflow definitions
   ├── workflows
     └── main.yml        // Defines the trigger, inputs, & specifies Action to run for your project
