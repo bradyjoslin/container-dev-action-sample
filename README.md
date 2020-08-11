@@ -68,7 +68,7 @@ The GitHub Action workflow definition is set to run on pushes to any branch.  Th
 
 ```yaml
 # .github/workflows/main.yml
-on: push
+on: [push, pull_request]
 
 jobs:
   test:
