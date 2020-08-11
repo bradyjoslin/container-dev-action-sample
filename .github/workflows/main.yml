@@ -3,8 +3,8 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: Publish app
+    name: CI/CD Automation
     steps:
       - uses: actions/checkout@v2
-      - name: Automation
+      - name: Automation step 1
         uses: ./.github/
