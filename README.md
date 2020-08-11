@@ -83,6 +83,7 @@ jobs:
 `action.yml` then points to the location of our Dockerfile
 
 ```yaml
+# .github/action.yml
 name: "Hello action"
 description: "Sharing actions with devcontainers"
 runs:
