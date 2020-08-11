@@ -1,0 +1,16 @@
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Publish app
+    steps:
+      - uses: actions/checkout@v2
+      - name: Hopefully something cool
+        uses: ./
+        with:
+          preCommands: echo "*** pre commands ***"
+          postCommands: |
+            echo "*** post commands ***"
+            wrangler build
+            echo "******"

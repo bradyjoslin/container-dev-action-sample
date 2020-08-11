@@ -1,0 +1,16 @@
+{
+  "name": "devcontainer-fun",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "sirv src -D",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "sirv-cli": "^1.0.5"
+  }
+}

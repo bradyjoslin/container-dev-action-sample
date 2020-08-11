@@ -1,0 +1,13 @@
+
+name: "Hello action"
+description: "Sharing actions with devcontainers"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+inputs:
+  preCommands:
+    description: "Commands to execute before publishing the Workers project"
+    required: false
+  postCommands:
+    description: "Commands to execute after publishing the Workers project"
+    required: false
