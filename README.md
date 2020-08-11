@@ -1,6 +1,6 @@
 # devcontainer fun
 
-An experiment for sharing a dockerfile for both local development using VS Code devcontainers and for CI/CD with GitHub Actions.
+An experiment for sharing a single Dockerfile defined in a repository for both local development using VS Code devcontainers and CI/CD with GitHub Actions.
 
 ## VS Code Devcontainers
 
@@ -14,7 +14,7 @@ Devcontainers provide a way to develop locally inside of a container whose defin
 
 ## Unifying Dev and Build Containers
 
-Using containers for developing and builds solve a lot of probablems separately, but this still leaves develop teams open to the "it works on my machine" problem.  However, through some simple configuration it is possible to use the same container defintion for building with GitHub Actions as you do for development with devcontainers.  This POC project attempts to demonstrate one way of doing so.
+Using containers for developing and builds solve a lot of problems separately, but this still leaves teams open to the "it works on my machine" problem.  However, through some simple configuration it is possible to use the same container definition for building with GitHub Actions as you do for development with devcontainers.  This POC project attempts to demonstrate one way of doing so.
 
 ### Example project structure
 
@@ -42,7 +42,7 @@ Follow the [Getting Started Guide](https://code.visualstudio.com/docs/remote/con
 
 To open this repo in a container:
 
-1) Select `Remote-Containers: Open Repository in Container` from the VS Code Command Pallete.
+1) Select `Remote-Containers: Open Repository in Container` from the VS Code Command Palette.
 1) When prompted for the repository to open enter `https://github.com/bradyjoslin/devcontainer-fun`
 1) VS Code should reload the window and start building the devcontainer
 
