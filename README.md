@@ -62,9 +62,9 @@ This script runs `jq -r .message ./src/data.json`, and should also display `Hell
 
 ### Using GitHub Action
 
-The GitHub Action workflow definition is set to run on updates to the main branch or when receiving a pull request.  The first step is to checkout our code into an automation step that uses our Dockerfile.
+The GitHub Action workflow definition is set to run on pushes to any branch.  The first step is to checkout our code into an automation step that uses our Dockerfile.
 
-```on: [push, pull_request]
+```on: push
 
 jobs:
   test:
