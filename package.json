@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "sirv src -D",
-    "hello": "echo Hello world!",
+    "hello:jq": "jq -r .message ./src/data.json",
+    "hello:cat": "cat ./src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {},
   "dependencies": {
     "sirv-cli": "^1.0.5"
