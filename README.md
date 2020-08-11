@@ -66,7 +66,7 @@ This script runs `jq -r .message ./src/data.json`, and should also display `Hell
 
 The GitHub Action workflow definition is set to run on pushes to any branch.  The first defined step checks out our code into an automation step whose `uses` property points to the location of `.github/action.yml` which is the location for our Action configuration file.
 
-```
+```yaml
 # .github/workflows/main.yml
 on: push
 
