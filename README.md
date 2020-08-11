@@ -4,7 +4,7 @@ An example for how to share a single Dockerfile defined in a repository for both
 
 ## VS Code Devcontainers
 
-Devcontainers provide a way to develop locally inside of a container whose definition is specified within the source code for your project.  This is a great way to create a shared, reproducible development environment for those working on a project.  This accelerates developer onboarding by removing the need for team members to install and configure dev dependencies for a project.  From the docs:
+Devcontainers provide a way to develop locally inside of a container whose definition is specified within the source code for your project, including any required dev dependencies and configurations.  This is a great way to create a shared, reproducible development environment for those working on a project.  This accelerates developer onboarding by removing the need for team members to install and configure dev dependencies for a project.  From the docs:
 
 > The Visual Studio Code Remote - Containers extension lets you use a Docker container as a full-featured development environment. It allows you to open any folder inside (or mounted into) a container and take advantage of Visual Studio Code's full feature set. A devcontainer.json file in your project tells VS Code how to access (or create) a development container with a well-defined tool and runtime stack. This container can be used to run an application or to sandbox tools, libraries, or runtimes needed for working with a codebase. ([more](https://code.visualstudio.com/docs/remote/containers))
 
@@ -14,7 +14,7 @@ Devcontainers provide a way to develop locally inside of a container whose defin
 
 ## Unifying Dev and Build Containers
 
-Using containers for developing and builds solve a lot of problems separately, but this still leaves teams open to the "it works on my machine" problem.  However, through some simple configuration it is possible to use the same container definition for building with GitHub Actions as you do for development with devcontainers.  This POC project attempts to demonstrate one way of doing so.
+Using containers for developing and builds solve a lot of problems separately, but this still leaves teams open to the "it works on my machine" problem if different container definitions are used locally vs. for your builds.  However, through some simple configuration it is possible to use the same container definition for building with GitHub Actions as you do for development with devcontainers.  This POC project attempts to demonstrate one way of doing so.
 
 ### Example project structure
 
