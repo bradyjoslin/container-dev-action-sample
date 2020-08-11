@@ -29,7 +29,7 @@ Using containers for developing and builds solve a lot of problems separately, b
   └── entrypoint.sh     // Script to be run inside the container in GitHub Action context
 ├── .devcontainer.json  // Configuration for the devcontainer that points to the Dockerfile
 ├── .gitignore
-├── package.json        // Includes sample scripts that can be run locally and via action
+├── package.json        // Includes sample scripts that can be run locally and via Action
 ├── package-lock.json
 ├── README.md
 └── src                 // Contains sample content for testing
@@ -43,11 +43,12 @@ Follow the [Getting Started Guide](https://code.visualstudio.com/docs/remote/con
 
 To open this repo in a container:
 
-1) Select `Remote-Containers: Open Repository in Container` from the VS Code Command Palette.
-1) When prompted for the repository to open enter `https://github.com/bradyjoslin/devcontainer-fun`
+1) Select `Remote-Containers: Open Repository in Container` from the VS Code Command Palette (F1)
+1) When prompted for the repository to open enter `https://github.com/bradyjoslin/container-dev-action-sample`
+1) Select the first option to create a unique volume
 1) VS Code should reload the window and start building the devcontainer
 
-Once completed, you should see the source code for this project along with a zsh command prompt running in the container using [starship.rs](https://starship.rs), which was included as a dependency in the Dockerfile.
+Once completed, you should see the source code for this project.  Open a terminal window in VS Code (Terminal -> New Terminal) to see a zsh command prompt running in the container using [starship.rs](https://starship.rs), which was included as a dependency in the Dockerfile.
 
 Now run
 
@@ -63,9 +64,11 @@ This script runs `jq -r .message ./src/data.json`, and should also display `Hell
 
 ### Using GitHub Action
 
-The GitHub Action workflow definition is set to run on pushes to any branch.  The first step is to checkout our code into an automation step that uses our Dockerfile.
+The GitHub Action workflow definition is set to run on pushes to any branch.  The first defined step checks out our code into an automation step whose `uses` property points to the location of `.github/action.yml` which is the location for our Action configuration file.
 
-```on: push
+```
+# .github/workflows/main.yml
+on: push
 
 jobs:
   test:
@@ -77,7 +80,18 @@ jobs:
         uses: ./.github/
 ```
 
-Our Dockerfile has a configured `ENTRYPOINT ["/entrypoint.sh"]` which executes when the container is created.  Entrypoint is a bash script that executes the two npm commands we ran locally earlier.  There is an additional check to see if the environment variable `GITHUB_ACTIONS` is set, which would only exist in the context of running as a GitHub Action, not locally.
+`action.yml` then points to the location of our Dockerfile
+
+```yaml
+# .github/action.yml
+name: "Hello action"
+description: "Sharing actions with devcontainers"
+runs:
+  using: "docker"
+  image: "../docker/Dockerfile"
+```
+
+Our Dockerfile has a configured `ENTRYPOINT ["/entrypoint.sh"]` which executes when the container is created, which is a bash script that executes the two npm commands we ran locally earlier.  There is an additional check to see if the environment variable `GITHUB_ACTIONS` is set, which would only exist in the context of running as a GitHub Action, not locally.
 
 ```bash
 #!/bin/bash
@@ -94,7 +108,7 @@ then
 fi
 ```
 
-To see the Action run, simply fork and provide a PR to this repo.  When the action is finished running you should see...
+To see the Action run, simply fork and provide a PR to this repo with an innocuous change to this `README.md` file.  When the action is finished running you should see...
 
 ```text
 ** Running github action script **
