@@ -7,10 +7,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Hopefully something cool
-        uses: ./
+        uses: ./.github/
         with:
           preCommands: echo "*** pre commands ***"
           postCommands: |
             echo "*** post commands ***"
-            wrangler build
+            npm run hello
             echo "******"

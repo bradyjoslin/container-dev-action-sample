@@ -25,3 +25,6 @@ ENV PATH="/root/workspaces/wrangler/dist/:${PATH}"
 # Install Starship https://starship.rs/
 RUN curl -fsSL https://starship.rs/install.sh | bash /dev/stdin --yes \
     && echo 'eval "$(starship init zsh)"' >> /root/.zshrc
+
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
