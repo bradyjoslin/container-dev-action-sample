@@ -94,4 +94,13 @@ then
 fi
 ```
 
-To see the Action run, simply fork and provide a PR to this repo.
+To see the Action run, simply fork and provide a PR to this repo.  When the action is finished running you should see...
+
+```text
+** Running github action script **
+Hello world!
+Hello world!
+** **
+```
+
+...under a new run of the Action under `CI/CD Automation` in `Automation step 1`.
