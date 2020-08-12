@@ -50,6 +50,8 @@ To open this repo in a container:
 
 Once completed, you should see the source code for this project.  Open a terminal window in VS Code (Terminal -> New Terminal) to see a zsh command prompt running in the container using [starship.rs](https://starship.rs), which was included as a dependency in the Dockerfile.
 
+![dev container](./images/vs-code-dev-container.png)
+
 Now run
 
 ```
@@ -124,3 +126,7 @@ Hello world!
 ```
 
 ...under a new run of the Action under `CI/CD Automation` in `Automation step 1`.
+
+![action output](./images/action-output.png)
+
+🎉
