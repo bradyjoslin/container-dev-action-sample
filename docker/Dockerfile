@@ -8,7 +8,7 @@
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-14
 
 # Install ripgrep
-curl -sLO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb \
+RUN curl -sLO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb \
     && dpkg -i ripgrep_11.0.2_amd64.deb
 
 # Install Starship https://starship.rs/ for pretty prompt
