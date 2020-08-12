@@ -52,15 +52,15 @@ Once completed, you should see the source code for this project.  Open a termina
 
 Now run
 
-```npm run hello:cat```
+```npm run hello:cat --silent```
 
 This script runs `cat ./src/index.html`, so it should display `Hello World!` in your terminal.
 
 Now try
 
-```npm run hello:jq```
+```npm run hello:rg --silent```
 
-This script runs `jq -r .message ./src/data.json`, and should also display `Hello World!` in your terminal - [jq](https://stedolan.github.io/jq/), a command line JSON parser, was also included by your container.
+This script runs `rg -i world! --iglob \*.html | awk 'NR==1' | cut -d ':' -f 2`, and should also display `Hello World!` in your terminal - [ripgrep](https://github.com/BurntSushi/ripgrep), a command line search tool, was also included by your container.
 
 ### Using GitHub Action
 
@@ -79,6 +79,8 @@ jobs:
       - name: Automation step 1
         uses: ./.github/
 ```
+
+Note that `ripgrep` is not installed by the [ubuntu-latest GitHub runner](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md) we are using in this workflow, so in order for our example script to work we need it to run in our defined container.
 
 `action.yml` then points to the location of our Dockerfile
 
@@ -102,7 +104,7 @@ set -e
 if [ -n "$GITHUB_ACTIONS" ]
 then
   echo "** Running github action script **"
-  npm run hello:jq --silent
+  npm run hello:rg --silent
   npm run hello:cat --silent
   echo "** **"
 fi
