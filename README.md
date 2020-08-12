@@ -52,15 +52,19 @@ Once completed, you should see the source code for this project.  Open a termina
 
 Now run
 
-```npm run hello:cat --silent```
+```
+npm run hello:cat --silent
+```
 
 This script runs `cat ./src/index.html`, so it should display `Hello World!` in your terminal.
 
 Now try
 
-```npm run hello:rg --silent```
+```
+npm run hello:rg --silent
+```
 
-This script runs `rg -i world! --iglob \*.html | awk 'NR==1' | cut -d ':' -f 2`, and should also display `Hello World!` in your terminal - [ripgrep](https://github.com/BurntSushi/ripgrep), a command line search tool, was also included by your container.
+This npm script runs `rg -i world! --iglob \*.html | awk 'NR==1' | cut -d ':' -f 2` and should also display `Hello World!` in your terminal - [ripgrep](https://github.com/BurntSushi/ripgrep), a command line search tool, was also included by your container configuration.
 
 ### Using GitHub Action
 
