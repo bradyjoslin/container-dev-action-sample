@@ -6,7 +6,7 @@ set -e
 if [ -n "$GITHUB_ACTIONS" ]
 then
   echo "** Running github action script **"
-  npm run hello:jq --silent
+  npm run hello:rg --silent
   npm run hello:cat --silent
   echo "** **"
 fi

@@ -7,10 +7,9 @@
 # https://github.com/microsoft/vscode-dev-containers/tree/v0.122.1/containers/javascript-node-14/.devcontainer/Dockerfile
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-14
 
-# Install jq for json parsing in terminal
-RUN apt-get update \
-    && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install jq
+# Install ripgrep
+RUN curl -sLO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb \
+    && dpkg -i ripgrep_11.0.2_amd64.deb
 
 # Install Starship https://starship.rs/ for pretty prompt
 RUN curl -fsSL https://starship.rs/install.sh | bash /dev/stdin --yes \

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "sirv src -D",
-    "hello:jq": "jq -r .message ./src/data.json",
+    "hello:rg": "rg -i world! --iglob \\*.html | awk 'NR==1' | cut -d ':' -f 2",
     "hello:cat": "cat ./src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
